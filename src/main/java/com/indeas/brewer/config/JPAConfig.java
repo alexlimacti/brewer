@@ -21,7 +21,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@PropertySource("classpath:database.properties")
+@PropertySource("classpath:application.properties")
 @EnableJpaRepositories(basePackageClasses = Cervejas.class)
 public class JPAConfig {
 
@@ -36,12 +36,6 @@ public class JPAConfig {
 		dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
 		dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
 		return dataSource;
-		/*
-		JndiDataSourceLookup dataSourceLookup = new JndiDataSourceLookup();
-		dataSourceLookup.setResourceRef(true);
-		return dataSourceLookup.getDataSource("jdbc/brewerDB");
-
-		 */
 	}
 	
 	@Bean
