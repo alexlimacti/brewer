@@ -1,13 +1,16 @@
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Origem.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\JPAConfig.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\Cervejas.java
+C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\Estilos.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\EstiloController.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\CervejasController.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\CidadesController.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\ClientesController.java
+C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\service\CadastroCervejaService.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\WebConfig.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Cerveja.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\UsuariosController.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\init\AppInitializer.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Sabor.java
 C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Estilo.java
+C:\Develop\workspace\algaworks\brewer\src\main\java\com\indeas\brewer\converter\EstiloConverter.java

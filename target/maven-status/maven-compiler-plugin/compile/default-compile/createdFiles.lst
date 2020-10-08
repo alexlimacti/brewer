@@ -1,6 +1,7 @@
 com\indeas\brewer\controller\CidadesController.class
 com\indeas\brewer\model\Estilo.class
 com\indeas\brewer\controller\EstiloController.class
+com\indeas\brewer\converter\EstiloConverter.class
 com\indeas\brewer\config\init\AppInitializer.class
 com\indeas\brewer\config\WebConfig.class
 com\indeas\brewer\model\Origem.class
@@ -8,6 +9,8 @@ com\indeas\brewer\repository\Cervejas.class
 com\indeas\brewer\controller\UsuariosController.class
 com\indeas\brewer\model\Cerveja.class
 com\indeas\brewer\model\Sabor.class
+com\indeas\brewer\repository\Estilos.class
 com\indeas\brewer\controller\CervejasController.class
+com\indeas\brewer\service\CadastroCervejaService.class
 com\indeas\brewer\config\JPAConfig.class
 com\indeas\brewer\controller\ClientesController.class
