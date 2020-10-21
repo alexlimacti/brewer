@@ -2,16 +2,7 @@ package com.indeas.brewer.model;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import com.indeas.brewer.validation.SKU;
@@ -65,6 +56,16 @@ public class Cerveja {
 	@ManyToOne
 	@JoinColumn(name = "codigo_estilo")
 	private Estilo estilo;
+
+	private String foto;
+
+	@Column(name = "content_type")
+	private String contentType;
+
+	@PrePersist @PreUpdate
+	private void prePersisteUpdate(){
+		sku = sku.toUpperCase();
+	}
 
 	public String getSku() {
 		return sku;
@@ -152,6 +153,22 @@ public class Cerveja {
 
 	public void setEstilo(Estilo estilo) {
 		this.estilo = estilo;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
 	}
 
 	@Override

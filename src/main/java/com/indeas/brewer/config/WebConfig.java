@@ -2,6 +2,7 @@ package com.indeas.brewer.config;
 
 import com.indeas.brewer.controller.CervejasController;
 import com.indeas.brewer.converter.EstiloConverter;
+import com.indeas.brewer.thymeleaf.BrewerDialect;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -55,6 +56,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		engine.setEnableSpringELCompiler(true);
 		engine.setTemplateResolver(templateResolver());
 		engine.addDialect(new LayoutDialect());
+		engine.addDialect(new BrewerDialect());
 		return engine;
 	}
 
