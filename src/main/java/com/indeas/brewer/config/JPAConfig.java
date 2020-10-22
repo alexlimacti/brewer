@@ -2,7 +2,6 @@ package com.indeas.brewer.config;
 
 import com.indeas.brewer.model.Cerveja;
 import com.indeas.brewer.repository.Cervejas;
-import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

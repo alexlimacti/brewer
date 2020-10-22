@@ -7,6 +7,7 @@ import javax.validation.constraints.*;
 
 import com.indeas.brewer.validation.SKU;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.util.StringUtils;
 
 @Entity
 @Table(name = "cerveja")
@@ -37,9 +38,11 @@ public class Cerveja {
 	@Column(name = "teor_alcoolico")
 	private BigDecimal teorAlcoolico;
 
+	@NotNull(message = "A comissão é obrigatória")
 	@DecimalMax(value = "100.0", message = "A comissão deve ser igual ou menor que 100")
 	private BigDecimal comissao;
 
+	@NotNull(message = "A quantidade em estoque é obrigatória")
 	@Max(value = 9999, message = "A quantidade em estoque deve ser menor que 9.999")
 	@Column(name = "quantidade_estoque")
 	private Integer quantidadeEstoque;
@@ -62,8 +65,9 @@ public class Cerveja {
 	@Column(name = "content_type")
 	private String contentType;
 
-	@PrePersist @PreUpdate
-	private void prePersisteUpdate(){
+	@PrePersist
+	@PreUpdate
+	private void prePersistUpdate() {
 		sku = sku.toUpperCase();
 	}
 
@@ -171,6 +175,10 @@ public class Cerveja {
 		this.contentType = contentType;
 	}
 
+	public String getFotoOuMock() {
+		return !StringUtils.isEmpty(foto) ? foto : "cerveja-mock.png";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -195,5 +203,4 @@ public class Cerveja {
 			return false;
 		return true;
 	}
-
 }
