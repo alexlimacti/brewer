@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 @Configuration
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories(basePackageClasses = Cervejas.class)
-@ComponentScan(basePackages = "com.indeas.brewer.service")
+@ComponentScan(basePackages = "com.indeas.brewer")
 public class JPAConfig {
 
 	@Autowired

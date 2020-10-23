@@ -9,7 +9,7 @@ public class FotoStorageRunnable implements Runnable {
 	private MultipartFile[] files;
 	private DeferredResult<FotoDTO> resultado;
 	private FotoStorage fotoStorage;
-
+	
 	public FotoStorageRunnable(MultipartFile[] files, DeferredResult<FotoDTO> resultado, FotoStorage fotoStorage) {
 		this.files = files;
 		this.resultado = resultado;

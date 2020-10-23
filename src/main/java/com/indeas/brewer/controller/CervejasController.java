@@ -1,5 +1,6 @@
 package com.indeas.brewer.controller;
 
+import com.indeas.brewer.controller.page.PageWrapper;
 import com.indeas.brewer.model.Cerveja;
 import com.indeas.brewer.model.Origem;
 import com.indeas.brewer.model.Sabor;
@@ -8,7 +9,6 @@ import com.indeas.brewer.repository.Estilos;
 import com.indeas.brewer.repository.filter.CervejaFilter;
 import com.indeas.brewer.service.CadastroCervejaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -56,14 +57,15 @@ public class CervejasController {
     }
 
     @GetMapping
-    public ModelAndView pesquisar(CervejaFilter cervejaFilter, BindingResult result, @PageableDefault(size = 2) Pageable pageable) {
+    public ModelAndView pesquisar(CervejaFilter cervejaFilter, BindingResult result
+            , @PageableDefault(size = 2) Pageable pageable, HttpServletRequest httpServletRequest) {
         ModelAndView mv = new ModelAndView("cerveja/PesquisaCervejas");
         mv.addObject("estilos", estilos.findAll());
         mv.addObject("sabores", Sabor.values());
         mv.addObject("origens", Origem.values());
-        mv.addObject("cervejas", cervejas.filtrar(cervejaFilter, pageable));
-        Page<Cerveja> pagina = cervejas.filtrar(cervejaFilter, pageable);
-        mv.addObject("pagina", pagina);
+        PageWrapper<Cerveja> paginaWrapper = new PageWrapper<>(cervejas.filtrar(cervejaFilter, pageable)
+                , httpServletRequest);
+        mv.addObject("pagina", paginaWrapper);
         return mv;
     }
 

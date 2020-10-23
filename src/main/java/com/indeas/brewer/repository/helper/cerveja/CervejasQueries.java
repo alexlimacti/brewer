@@ -7,6 +7,6 @@ import org.springframework.data.domain.Pageable;
 
 public interface CervejasQueries {
 
-    public Page<Cerveja> filtrar(CervejaFilter filtro, Pageable pageable);
-
+	public Page<Cerveja> filtrar(CervejaFilter filtro, Pageable pageable);
+	
 }
