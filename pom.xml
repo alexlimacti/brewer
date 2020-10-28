@@ -30,7 +30,10 @@
         <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
 
         <!-- Thymeleaf - Layout Dialect -->
-        <thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
+        <thymeleaf-layout-dialect.version>2.5.1</thymeleaf-layout-dialect.version>
+
+        <!-- Thymeleaf extras data attribute -->
+        <thymeleaf-extras-data-attribute.version>2.0.1</thymeleaf-extras-data-attribute.version>
 
         <!-- Logging -->
         <log4j.version>2.13.3</log4j.version>
@@ -149,6 +152,14 @@
             <groupId>nz.net.ultraq.thymeleaf</groupId>
             <artifactId>thymeleaf-layout-dialect</artifactId>
             <version>${thymeleaf-layout-dialect.version}</version>
+        </dependency>
+
+        <!-- Thymeleaf extras data attribute -->
+        <dependency>
+            <groupId>com.github.mxab.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-data-attribute</artifactId>
+            <version>${thymeleaf-extras-data-attribute.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- Logging -->

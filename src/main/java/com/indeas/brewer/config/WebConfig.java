@@ -1,5 +1,6 @@
 package com.indeas.brewer.config;
 
+import com.github.mxab.thymeleaf.extras.dataattribute.dialect.DataAttributeDialect;
 import com.indeas.brewer.controller.CervejasController;
 import com.indeas.brewer.converter.EstiloConverter;
 import com.indeas.brewer.thymeleaf.BrewerDialect;
@@ -59,6 +60,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		engine.setTemplateResolver(templateResolver());
 		engine.addDialect(new LayoutDialect());
 		engine.addDialect(new BrewerDialect());
+		engine.addDialect(new DataAttributeDialect());
 		return engine;
 	}
 
