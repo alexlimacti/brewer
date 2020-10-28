@@ -14,8 +14,6 @@ Brewer.MascaraCpfCnpj = (function() {
 	
 	function onTipoPessoaAlterado(evento) {
 		var tipoPessoaSelecionada = $(evento.currentTarget);
-		console.log(tipoPessoaSelecionada.data('documento'));
-		console.log(tipoPessoaSelecionada.data('mascara'));
 		this.labelCpfCnpj.text(tipoPessoaSelecionada.data('documento'));
 		this.inputCpfCnpj.mask(tipoPessoaSelecionada.data('mascara'));
 		this.inputCpfCnpj.val('');
