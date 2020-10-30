@@ -2,6 +2,8 @@ package com.indeas.brewer.config;
 
 import com.github.mxab.thymeleaf.extras.dataattribute.dialect.DataAttributeDialect;
 import com.indeas.brewer.controller.CervejasController;
+import com.indeas.brewer.converter.CidadeConverter;
+import com.indeas.brewer.converter.EstadoConverter;
 import com.indeas.brewer.converter.EstiloConverter;
 import com.indeas.brewer.thymeleaf.BrewerDialect;
 import org.springframework.beans.BeansException;
@@ -83,6 +85,8 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 	public FormattingConversionService mvcConversionService() {
 		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService();
 		conversionService.addConverter(new EstiloConverter());
+		conversionService.addConverter(new EstadoConverter());
+		conversionService.addConverter(new CidadeConverter());
 
 		NumberStyleFormatter bigDecimalFormatter = new NumberStyleFormatter("#,##0.00");
 		conversionService.addFormatterForFieldType(BigDecimal.class, bigDecimalFormatter);
