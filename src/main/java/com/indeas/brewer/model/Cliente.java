@@ -2,17 +2,10 @@ package com.indeas.brewer.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.indeas.brewer.model.validation.ClienteGroupSequenceProvider;
 import com.indeas.brewer.model.validation.group.CnpjGroup;
 import com.indeas.brewer.model.validation.group.CpfGroup;
 import org.hibernate.validator.constraints.Email;
@@ -23,6 +16,7 @@ import org.hibernate.validator.group.GroupSequenceProvider;
 
 @Entity
 @Table(name = "cliente")
+@GroupSequenceProvider(ClienteGroupSequenceProvider.class)
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -52,6 +46,16 @@ public class Cliente implements Serializable {
 
 	@Embedded
 	private Endereco endereco;
+
+	@PrePersist @PreUpdate
+	private void prePersistPreUpdate() {
+		this.cpfOuCnpj = TipoPessoa.removerFormatacao(this.cpfOuCnpj);
+	}
+
+	@PostLoad
+	private void postLoad() {
+		this.cpfOuCnpj = this.tipoPessoa.formatar(this.cpfOuCnpj);
+	}
 
 	public Long getCodigo() {
 		return codigo;
@@ -107,6 +111,10 @@ public class Cliente implements Serializable {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public String getCpfOuCnpjSemFormatacao() {
+		return TipoPessoa.removerFormatacao(this.cpfOuCnpj);
 	}
 
 	@Override

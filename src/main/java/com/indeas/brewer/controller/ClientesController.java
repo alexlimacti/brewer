@@ -1,11 +1,23 @@
 package com.indeas.brewer.controller;
 
+import com.indeas.brewer.controller.page.PageWrapper;
+import com.indeas.brewer.exception.CpfCnpjClienteJaCadastradoException;
 import com.indeas.brewer.model.Cliente;
 import com.indeas.brewer.model.TipoPessoa;
+import com.indeas.brewer.repository.Clientes;
 import com.indeas.brewer.repository.Estados;
+import com.indeas.brewer.repository.filter.ClienteFilter;
+import com.indeas.brewer.service.CadastroClienteService;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +31,12 @@ public class ClientesController {
 
 	@Autowired
 	private Estados estados;
+
+	@Autowired
+	private CadastroClienteService cadastroClienteService;
+
+	@Autowired
+	private Clientes clientes;
 
 	@RequestMapping("/novo")
 	public ModelAndView novo(Cliente cliente) {
@@ -34,9 +52,26 @@ public class ClientesController {
 			return novo(cliente);
 		}
 
-		// TODO: Salvar e adicionar mensagem
+		try {
+			cadastroClienteService.salvar(cliente);
+		} catch (CpfCnpjClienteJaCadastradoException e) {
+			result.rejectValue("cpfOuCnpj", e.getMessage(), e.getMessage());
+			return novo(cliente);
+		}
+
 		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!");
 		return new ModelAndView("redirect:/clientes/novo");
 	}
-	
+
+	@GetMapping
+	public ModelAndView pesquisar(ClienteFilter clienteFilter, BindingResult result
+			, @PageableDefault(size = 3) Pageable pageable, HttpServletRequest httpServletRequest) {
+		ModelAndView mv = new ModelAndView("cliente/PesquisaClientes");
+		mv.addObject("tipoPessoa", TipoPessoa.values());
+
+		PageWrapper<Cliente> paginaWrapper = new PageWrapper<>(clientes.filtrar(clienteFilter, pageable)
+				, httpServletRequest);
+		mv.addObject("pagina", paginaWrapper);
+		return mv;
+	}
 }
