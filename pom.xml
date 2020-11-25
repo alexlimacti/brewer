@@ -60,6 +60,20 @@
         <!-- thumbnailator - Gerar Thumbnail -->
         <!-- https://github.com/coobird/thumbnailator -->
         <thumbnailator.version>0.4.13</thumbnailator.version>
+
+        <!-- Cache - Guava -->
+        <guava.version>30.0-jre</guava.version>
+
+        <javax.cache.version>1.1.1</javax.cache.version>
+
+        <!-- EhCache -->
+        <ehcache.version>3.9.0</ehcache.version>
+
+        <!-- Apache Bean Utils -->
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+
+        <!-- Spring Security -->
+        <spring-security.version>5.4.1</spring-security.version>
     </properties>
 
     <dependencyManagement>
@@ -95,7 +109,7 @@
                     <user>root</user>
                     <password>root</password>
                     <locations>
-                        <location>classpath:db/migration</location>
+                        <location>filesystem:src/main/resources/db/migration</location>
                     </locations>
                 </configuration>
             </plugin>
@@ -239,6 +253,59 @@
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>
             <version>${thumbnailator.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Cache - Guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Context Support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- EhCache -->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
+
+        <!-- JCache -->
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>${javax.cache.version}</version>
+        </dependency>
+
+        <!-- Apache Bean Utils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${commons-beanutils.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
             <scope>compile</scope>
         </dependency>
 
