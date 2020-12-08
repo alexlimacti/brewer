@@ -12,6 +12,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\re
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\thymeleaf\processor\PaginationElementTagProcessor.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\init\SecurityInitializer.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\paginacao\PaginacaoUtil.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\security\AppUserDetailsService.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\thymeleaf\processor\MessageElementTagProcessor.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\service\CadastroCidadeService.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Sabor.java
@@ -37,6 +38,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\st
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\Cervejas.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\filter\EstiloFilter.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\UsuariosController.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\helper\usuario\UsuariosImpl.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\helper\cliente\ClientesQueries.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\handler\ControllerAdviceExceptionHandler.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Endereco.java
@@ -75,4 +77,5 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\ex
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Usuario.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\storage\FotoStorageRunnable.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\helper\estilo\EstilosQueries.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\helper\usuario\UsuariosQueries.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\converter\GrupoConverter.java

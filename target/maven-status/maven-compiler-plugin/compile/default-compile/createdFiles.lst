@@ -7,10 +7,12 @@ com\indeas\brewer\model\TipoPessoa$2.class
 com\indeas\brewer\repository\Usuarios.class
 com\indeas\brewer\thymeleaf\processor\OrderElementTagProcessor.class
 com\indeas\brewer\service\CadastroUsuarioService.class
+com\indeas\brewer\security\AppUserDetailsService.class
 com\indeas\brewer\service\CadastroEstiloService.class
 com\indeas\brewer\repository\helper\cidade\CidadesQueries.class
 com\indeas\brewer\repository\helper\cerveja\CervejasImpl.class
 com\indeas\brewer\model\Origem.class
+com\indeas\brewer\repository\helper\usuario\UsuariosQueries.class
 com\indeas\brewer\thymeleaf\processor\ClassForErrorAttributeTagProcessor.class
 com\indeas\brewer\converter\EstadoConverter.class
 com\indeas\brewer\controller\handler\ControllerAdviceExceptionHandler.class
@@ -77,4 +79,5 @@ com\indeas\brewer\converter\GrupoConverter.class
 com\indeas\brewer\repository\filter\CervejaFilter.class
 com\indeas\brewer\model\Endereco.class
 com\indeas\brewer\controller\ClientesController.class
+com\indeas\brewer\repository\helper\usuario\UsuariosImpl.class
 com\indeas\brewer\repository\helper\estilo\EstilosQueries.class

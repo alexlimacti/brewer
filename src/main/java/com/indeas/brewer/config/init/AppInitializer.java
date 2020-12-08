@@ -5,6 +5,7 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
 import com.indeas.brewer.config.JPAConfig;
+import com.indeas.brewer.config.SecurityConfig;
 import com.indeas.brewer.config.ServiceConfig;
 import com.indeas.brewer.config.WebConfig;
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -15,7 +16,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] { JPAConfig.class, ServiceConfig.class };
+		return new Class<?>[] { JPAConfig.class, ServiceConfig.class, SecurityConfig.class};
 	}
 
 	@Override

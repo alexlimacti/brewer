@@ -34,13 +34,14 @@ public class SecurityConfig extends SecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
-				.anyRequest().authenticated()
+					.antMatchers("/cidades/nova").hasRole("CADASTRAR_CIDADE")
+					.antMatchers("/usuarios/**").hasRole("CADASTRAR_USUARIO")
 				.and()
 				.formLogin()
-				.loginPage("/login")
-				.permitAll()
+					.loginPage("/login")
+					.permitAll()
 				.and()
-				.csrf().disable();
+					.csrf().disable();
 	}
 
 	@Bean

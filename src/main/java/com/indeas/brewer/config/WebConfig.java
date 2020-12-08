@@ -133,10 +133,4 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         bundle.setDefaultEncoding("UTF-8"); // http://www.utf8-chartable.de/
         return bundle;
     }
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("login");
-        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-    }
 }
