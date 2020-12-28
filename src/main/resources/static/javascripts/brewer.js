@@ -55,13 +55,29 @@ Brewer.MaskDate = (function() {
 	return MaskDate;
 }());
 
+//Segurança no Ajax
+Brewer.Security = (function() {
+	function Security() {
+		this.token = $('input[name=_csrf]').val();
+		this.header = $('input[name=_csrf_header]').val();
+	}
+	Security.prototype.enable = function() {
+		$(document).ajaxSend(function(event, jqxhr, settings) {
+			jqxhr.setRequestHeader(this.header, this.token);
+		}.bind(this));
+	}
+	return Security;
+}());
+
 $(function() {
 	var maskMoney = new Brewer.MaskMoney();
 	var maskPhoneNumber = new Brewer.MaskPhoneNumber();
 	var maskCep = new Brewer.MaskCep();
 	var maskDate = new Brewer.MaskDate();
+	var security = new Brewer.Security();
 	maskDate.enable();
 	maskMoney.enable();
 	maskPhoneNumber.enable();
 	maskCep.enable();
+	security.enable();
 });
