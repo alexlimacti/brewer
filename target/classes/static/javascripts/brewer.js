@@ -55,6 +55,7 @@ Brewer.MaskDate = (function() {
 	return MaskDate;
 }());
 
+//Segurança no Ajax
 Brewer.Security = (function() {
 	function Security() {
 		this.token = $('input[name=_csrf]').val();
