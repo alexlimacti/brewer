@@ -10,6 +10,7 @@ import com.indeas.brewer.config.ServiceConfig;
 import com.indeas.brewer.config.WebConfig;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
+import org.springframework.web.filter.HttpPutFormContentFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -31,7 +32,8 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Filter[] getServletFilters() {
-        return new Filter[]{};
+        HttpPutFormContentFilter httpPutFormContentFilter = new HttpPutFormContentFilter();
+        return new Filter[] { httpPutFormContentFilter };
     }
 
     @Override

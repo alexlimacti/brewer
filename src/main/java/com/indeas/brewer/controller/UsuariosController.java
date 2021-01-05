@@ -6,13 +6,13 @@ import com.indeas.brewer.repository.Grupos;
 import com.indeas.brewer.repository.Usuarios;
 import com.indeas.brewer.repository.filter.UsuarioFilter;
 import com.indeas.brewer.service.CadastroUsuarioService;
+import com.indeas.brewer.service.StatusUsuario;
 import com.indeas.brewer.validation.AtributoConfirmacao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -61,6 +61,12 @@ public class UsuariosController {
 
 		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso");
 		return new ModelAndView("redirect:/usuarios/novo");
+	}
+
+	@PutMapping("/status")
+	@ResponseStatus(HttpStatus.OK)
+	public void atualizarStatus(@RequestParam("codigos[]") Long[] codigos, @RequestParam("status") StatusUsuario statusUsuario) {
+		cadastroUsuarioService.alterarStatus(codigos, statusUsuario);
 	}
 	
 }

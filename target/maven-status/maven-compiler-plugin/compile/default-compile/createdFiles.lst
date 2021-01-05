@@ -6,8 +6,10 @@ com\indeas\brewer\converter\EstiloConverter.class
 com\indeas\brewer\model\TipoPessoa$2.class
 com\indeas\brewer\repository\filter\UsuarioFilter.class
 com\indeas\brewer\repository\Usuarios.class
+com\indeas\brewer\model\UsuarioGrupoId.class
 com\indeas\brewer\thymeleaf\processor\OrderElementTagProcessor.class
 com\indeas\brewer\service\CadastroUsuarioService.class
+com\indeas\brewer\service\StatusUsuario.class
 com\indeas\brewer\security\AppUserDetailsService.class
 com\indeas\brewer\service\CadastroEstiloService.class
 com\indeas\brewer\repository\helper\cidade\CidadesQueries.class
@@ -35,6 +37,7 @@ com\indeas\brewer\repository\Cidades.class
 com\indeas\brewer\exception\CpfCnpjClienteJaCadastradoException.class
 com\indeas\brewer\validation\AtributoConfirmacao.class
 com\indeas\brewer\model\TipoPessoa$1.class
+com\indeas\brewer\model\UsuarioGrupo.class
 com\indeas\brewer\exception\NomeCidadeJaCadastradaException.class
 com\indeas\brewer\controller\ErrosController.class
 com\indeas\brewer\config\JPAConfig.class
@@ -60,6 +63,7 @@ com\indeas\brewer\repository\Estados.class
 com\indeas\brewer\thymeleaf\processor\PaginationElementTagProcessor.class
 com\indeas\brewer\config\init\AppInitializer.class
 com\indeas\brewer\config\WebConfig.class
+com\indeas\brewer\service\StatusUsuario$2.class
 com\indeas\brewer\storage\local\FotoStorageLocal.class
 com\indeas\brewer\repository\filter\ClienteFilter.class
 com\indeas\brewer\exception\NomeEstiloJaCadastradoException.class
@@ -81,6 +85,7 @@ com\indeas\brewer\service\CadastroCervejaService.class
 com\indeas\brewer\converter\GrupoConverter.class
 com\indeas\brewer\repository\filter\CervejaFilter.class
 com\indeas\brewer\security\UsuarioSistema.class
+com\indeas\brewer\service\StatusUsuario$1.class
 com\indeas\brewer\model\Endereco.class
 com\indeas\brewer\controller\ClientesController.class
 com\indeas\brewer\repository\helper\usuario\UsuariosImpl.class

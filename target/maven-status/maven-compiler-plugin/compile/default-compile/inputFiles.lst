@@ -21,6 +21,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\re
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\converter\EstiloConverter.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\exception\EmailUsuarioJaCadastradoException.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Estilo.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\service\StatusUsuario.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\exception\SenhaObrigatoriaUsuarioException.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\service\CadastroClienteService.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\service\CadastroUsuarioService.java
@@ -34,6 +35,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\re
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\Estados.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\SecurityConfig.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Permissao.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\UsuarioGrupo.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\thymeleaf\processor\ClassForErrorAttributeTagProcessor.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\storage\local\FotoStorageLocal.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\Cervejas.java
@@ -63,6 +65,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\mo
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Estado.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\helper\cerveja\CervejasQueries.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\ClientesController.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\UsuarioGrupoId.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\service\CadastroCervejaService.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\helper\cerveja\CervejasImpl.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Grupo.java
