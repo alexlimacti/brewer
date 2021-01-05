@@ -12,7 +12,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @AtributoConfirmacao(atributo = "senha", atributoConfirmacao = "confirmacaoSenha", message = "Confirmação da senha não confere")
-@DynamicUpdate
 @Entity
 @Table(name = "usuario")
 public class Usuario implements Serializable {

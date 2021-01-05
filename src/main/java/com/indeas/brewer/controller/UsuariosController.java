@@ -1,6 +1,7 @@
 package com.indeas.brewer.controller;
 
 import com.indeas.brewer.exception.EmailUsuarioJaCadastradoException;
+import com.indeas.brewer.exception.SenhaObrigatoriaUsuarioException;
 import com.indeas.brewer.model.Usuario;
 import com.indeas.brewer.repository.Grupos;
 import com.indeas.brewer.repository.Usuarios;
@@ -34,7 +35,7 @@ public class UsuariosController {
 	@GetMapping
 	public ModelAndView pesquisar(UsuarioFilter usuarioFilter) {
 		ModelAndView mv = new ModelAndView("/usuario/PesquisaUsuarios");
-		mv.addObject("usuarios", usuarios.findAll());
+		mv.addObject("usuarios", usuarios.filtrar(usuarioFilter));
 		mv.addObject("grupos", grupos.findAll());
 		return mv;
 	}
@@ -56,6 +57,9 @@ public class UsuariosController {
 			cadastroUsuarioService.salvar(usuario);
 		} catch (EmailUsuarioJaCadastradoException e) {
 			result.rejectValue("email", e.getMessage(), e.getMessage());
+			return novo(usuario);
+		} catch (SenhaObrigatoriaUsuarioException e) {
+			result.rejectValue("senha", e.getMessage(), e.getMessage());
 			return novo(usuario);
 		}
 

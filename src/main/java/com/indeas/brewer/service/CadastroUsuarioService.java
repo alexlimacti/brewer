@@ -1,5 +1,7 @@
 package com.indeas.brewer.service;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import com.indeas.brewer.exception.EmailUsuarioJaCadastradoException;
@@ -42,7 +44,7 @@ public class CadastroUsuarioService {
 
 	@Transactional
 	public void alterarStatus(Long[] codigos, StatusUsuario statusUsuario) {
-		statusUsuario.executar(codigos, usuarios);
+	    statusUsuario.executar(codigos, usuarios);
 	}
 	
 }

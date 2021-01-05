@@ -27,7 +27,7 @@ public class UsuariosImpl implements UsuariosQueries {
 
 	@PersistenceContext
 	private EntityManager manager;
-	
+
 	@Override
 	public Optional<Usuario> porEmailEAtivo(String email) {
 		return manager
@@ -48,10 +48,10 @@ public class UsuariosImpl implements UsuariosQueries {
 	@Override
 	public List<Usuario> filtrar(UsuarioFilter filtro) {
 		Criteria criteria = manager.unwrap(Session.class).createCriteria(Usuario.class);
-		
+
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		adicionarFiltro(filtro, criteria);
-		
+
 		return criteria.list();
 	}
 
@@ -60,11 +60,11 @@ public class UsuariosImpl implements UsuariosQueries {
 			if (!StringUtils.isEmpty(filtro.getNome())) {
 				criteria.add(Restrictions.ilike("nome", filtro.getNome(), MatchMode.ANYWHERE));
 			}
-			
+
 			if (!StringUtils.isEmpty(filtro.getEmail())) {
 				criteria.add(Restrictions.ilike("email", filtro.getEmail(), MatchMode.START));
 			}
-			
+
 			criteria.createAlias("grupos", "g", JoinType.LEFT_OUTER_JOIN);
 			if (filtro.getGrupos() != null && !filtro.getGrupos().isEmpty()) {
 				List<Criterion> subqueries = new ArrayList<>();
@@ -72,10 +72,10 @@ public class UsuariosImpl implements UsuariosQueries {
 					DetachedCriteria dc = DetachedCriteria.forClass(UsuarioGrupo.class);
 					dc.add(Restrictions.eq("id.grupo.codigo", codigoGrupo));
 					dc.setProjection(Projections.property("id.usuario"));
-					
+
 					subqueries.add(Subqueries.propertyIn("codigo", dc));
 				}
-				
+
 				Criterion[] criterions = new Criterion[subqueries.size()];
 				criteria.add(Restrictions.and(subqueries.toArray(criterions)));
 			}
