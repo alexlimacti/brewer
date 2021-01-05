@@ -38,7 +38,7 @@ public class Usuario implements Serializable {
 	private Boolean ativo;
 
 	@Size(min = 1, message = "Selecione pelo menos um grupo")
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "usuario_grupo", joinColumns = @JoinColumn(name = "codigo_usuario")
 			, inverseJoinColumns = @JoinColumn(name = "codigo_grupo"))
 	private List<Grupo> grupos;

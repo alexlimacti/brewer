@@ -3,11 +3,14 @@ package com.indeas.brewer.controller;
 import com.indeas.brewer.exception.EmailUsuarioJaCadastradoException;
 import com.indeas.brewer.model.Usuario;
 import com.indeas.brewer.repository.Grupos;
+import com.indeas.brewer.repository.Usuarios;
+import com.indeas.brewer.repository.filter.UsuarioFilter;
 import com.indeas.brewer.service.CadastroUsuarioService;
 import com.indeas.brewer.validation.AtributoConfirmacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,6 +27,17 @@ public class UsuariosController {
 
 	@Autowired
 	private Grupos grupos;
+
+	@Autowired
+	private Usuarios usuarios;
+
+	@GetMapping
+	public ModelAndView pesquisar(UsuarioFilter usuarioFilter) {
+		ModelAndView mv = new ModelAndView("/usuario/PesquisaUsuarios");
+		mv.addObject("usuarios", usuarios.findAll());
+		mv.addObject("grupos", grupos.findAll());
+		return mv;
+	}
 
 	@RequestMapping("/novo")
 	public ModelAndView novo(Usuario usuario) {

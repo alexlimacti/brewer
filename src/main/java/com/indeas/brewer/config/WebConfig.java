@@ -138,4 +138,5 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public SpringSecurityDialect securityDialect() {
         return new SpringSecurityDialect();
     }
+
 }

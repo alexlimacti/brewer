@@ -29,6 +29,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\co
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\converter\CidadeConverter.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\JPAConfig.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\exception\NomeCidadeJaCadastradaException.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\ErrosController.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\Usuarios.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\Estados.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\SecurityConfig.java
@@ -42,10 +43,12 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\re
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\helper\cliente\ClientesQueries.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\handler\ControllerAdviceExceptionHandler.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Endereco.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\filter\UsuarioFilter.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\validation\validator\AtributoConfirmacaoValidator.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\validation\group\CpfGroup.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\TipoPessoa.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\filter\CervejaFilter.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\security\UsuarioSistema.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\CervejasController.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\CidadesController.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\init\AppInitializer.java
@@ -53,6 +56,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\va
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\helper\cidade\CidadesQueries.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\ServiceConfig.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\page\PageWrapper.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\thymeleaf\processor\MenuAttributeTagProcessor.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Cliente.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\validation\ClienteGroupSequenceProvider.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\model\Cidade.java
