@@ -1,5 +1,6 @@
 package com.indeas.brewer.controller;
 
+import com.indeas.brewer.controller.page.PageWrapper;
 import com.indeas.brewer.exception.EmailUsuarioJaCadastradoException;
 import com.indeas.brewer.exception.SenhaObrigatoriaUsuarioException;
 import com.indeas.brewer.model.Usuario;
@@ -10,6 +11,8 @@ import com.indeas.brewer.service.CadastroUsuarioService;
 import com.indeas.brewer.service.StatusUsuario;
 import com.indeas.brewer.validation.AtributoConfirmacao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -33,10 +37,14 @@ public class UsuariosController {
 	private Usuarios usuarios;
 
 	@GetMapping
-	public ModelAndView pesquisar(UsuarioFilter usuarioFilter) {
+	public ModelAndView pesquisar(UsuarioFilter usuarioFilter
+			, @PageableDefault(size = 3) Pageable pageable, HttpServletRequest httpServletRequest) {
 		ModelAndView mv = new ModelAndView("/usuario/PesquisaUsuarios");
-		mv.addObject("usuarios", usuarios.filtrar(usuarioFilter));
 		mv.addObject("grupos", grupos.findAll());
+
+		PageWrapper<Usuario> paginaWrapper = new PageWrapper<>(usuarios.filtrar(usuarioFilter, pageable)
+				, httpServletRequest);
+		mv.addObject("pagina", paginaWrapper);
 		return mv;
 	}
 

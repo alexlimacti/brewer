@@ -27,6 +27,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\se
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\service\CadastroUsuarioService.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\thymeleaf\processor\OrderElementTagProcessor.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\EstiloController.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\VendasController.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\converter\CidadeConverter.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\JPAConfig.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\exception\NomeCidadeJaCadastradaException.java

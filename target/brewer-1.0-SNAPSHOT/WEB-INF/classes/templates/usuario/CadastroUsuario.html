@@ -15,21 +15,24 @@
 
 		<div class="page-header">
 			<div class="container-fluid">
-				<h1>
-					Cadastro de usuário
-				</h1>
-			</div>
-			<div class="col-xs-2">
-				<div class="aw-page-header-controls">
-					<a class="btn  btn-default" th:href="@{/usuarios}">
-						<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Pesquisa</span>
-					</a>
+				<div class="row">
+					<div class="col-xs-10">
+						<h1>Cadastro de usuário</h1>
+					</div>
+
+					<div class="col-xs-2">
+						<div class="aw-page-header-controls">
+							<a class="btn  btn-default" th:href="@{/usuarios}">
+								<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Pesquisa</span>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="container-fluid">
-			<form method="POST" th:object="${usuario}">
+			<form method="POST" th:object="${usuario}" th:action="@{/usuarios/novo}">
 				<brewer:message/>
 
 				<div class="row">
@@ -77,10 +80,10 @@
 						<label class="control-label">Grupos</label>
 						<div>
 							<th:block th:each="grupo : ${grupos}">
-							<div class="checkbox  checkbox-inline">
-								<input type="checkbox" th:value="${grupo.codigo}" th:field="*{grupos}" />
-								<label th:for="${#ids.prev('grupos')}" th:text="${grupo.nome}">Administrador</label>
-							</div>
+								<div class="checkbox  checkbox-inline">
+									<input type="checkbox" th:value="${grupo.codigo}" th:field="*{grupos}"/>
+									<label th:for="${#ids.prev('grupos')}" th:text="${grupo.nome}">Administrador</label>
+								</div>
 							</th:block>
 						</div>
 					</div>

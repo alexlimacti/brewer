@@ -36,6 +36,7 @@ com\indeas\brewer\repository\paginacao\PaginacaoUtil.class
 com\indeas\brewer\repository\Cidades.class
 com\indeas\brewer\exception\CpfCnpjClienteJaCadastradoException.class
 com\indeas\brewer\validation\AtributoConfirmacao.class
+com\indeas\brewer\controller\VendasController.class
 com\indeas\brewer\model\TipoPessoa$1.class
 com\indeas\brewer\model\UsuarioGrupo.class
 com\indeas\brewer\exception\NomeCidadeJaCadastradaException.class
