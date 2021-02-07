@@ -62,12 +62,14 @@
 					<div class="form-group  col-sm-4  bw-required">
 						<label class="control-label" for="nomeCliente">Cliente</label>
 						<div class="input-group">
-						  <input id="nomeCliente" type="text" readonly="readonly" class="form-control" placeholder="Clique na lupa para pesquisar o cliente"/>
-						  <span class="input-group-btn">
-							<button class="btn  btn-default  js-tooltip" type="button" title="Pesquisa avançada">
-								<i class="glyphicon  glyphicon-search"></i>
-							</button>
-						  </span>
+							<input id="nomeCliente" type="text" readonly="readonly" class="form-control" placeholder="Clique na lupa para pesquisar o cliente"/>
+							<input id="codigoCliente" type="hidden"/>
+							<span class="input-group-btn">
+				        <button class="btn  btn-default  js-tooltip" type="button" title="Pesquisa avançada"
+								data-toggle="modal" data-target="#pesquisaRapidaClientes" >
+				        	<i class="glyphicon  glyphicon-search"></i>
+				        </button>
+				      </span>
 						</div>
 					</div>
 
@@ -91,8 +93,8 @@
 				<div class="row">
 					<div class="form-group  col-lg-12">
 						<ul class="nav nav-tabs  js-abas-venda">
-						  <li role="presentation" class="active"><a href="#cervejas">Cervejas</a></li>
-						  <li role="presentation"><a href="#entrega">Entrega</a></li>
+							<li role="presentation" class="active"><a href="#cervejas">Cervejas</a></li>
+							<li role="presentation"><a href="#entrega">Entrega</a></li>
 						</ul>
 					</div>
 				</div>
@@ -103,7 +105,7 @@
 						<div class="row">
 							<div class="form-group  col-lg-12">
 								<input type="text" class="form-control" id="cerveja"
-									placeholder="Pesquise e adicione a cerveja pelo SKU ou nome" autofocus="autofocus" />
+									   placeholder="Pesquise e adicione a cerveja pelo SKU ou nome" autofocus="autofocus" />
 							</div>
 						</div>
 
@@ -130,8 +132,8 @@
 
 						<div class="row">
 							<div class="form-group  col-sm-12">
-								<textarea class="form-control" id="dataEntrega" rows="5"
-									placeholder="Alguma observação para o entregador desse pedido?"></textarea>
+							<textarea class="form-control" id="dataEntrega" rows="5"
+									  placeholder="Alguma observação para o entregador desse pedido?"></textarea>
 							</div>
 						</div>
 					</div>
@@ -140,15 +142,15 @@
 				<div class="row" style="clear: both">
 					<div class="col-lg-12">
 						<div class="btn-group">
-						  <button type="submit" class="btn  btn-primary">Salvar</button>
-						  <button type="button" class="btn  btn-primary  dropdown-toggle" data-toggle="dropdown">
-							<span class="caret"></span>
-						  </button>
+							<button type="submit" class="btn  btn-primary">Salvar</button>
+							<button type="button" class="btn  btn-primary  dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							</button>
 
-						  <ul class="dropdown-menu">
-							<li><a href="#">Salvar e emitir</a></li>
-							<li><a href="#">Salvar e enviar por e-mail</a></li>
-						  </ul>
+							<ul class="dropdown-menu">
+								<li><a href="#">Salvar e emitir</a></li>
+								<li><a href="#">Salvar e enviar por e-mail</a></li>
+							</ul>
 						</div>
 
 						<button class="btn  btn-danger">Cancelar</button>
@@ -156,16 +158,20 @@
 				</div>
 			</form>
 		</div>
+
+		<th:block th:replace="cliente/PesquisaRapidaClientes :: pesquisaRapidaClientes"></th:block>
 	</section>
 
 	<th:block layout:fragment="javascript-extra">
+		<script th:src="@{/javascripts/vendors/handlebars.min.js}"></script>
+		<script th:src="@{/javascripts/cliente.pesquisa-rapida.js}"></script>
 		<script>
-		$(function() {
-			$('.js-abas-venda a').click(function (e) {
-				e.preventDefault();
-				$(this).tab('show');
+			$(function() {
+				$('.js-abas-venda a').click(function (e) {
+					e.preventDefault();
+					$(this).tab('show');
+				});
 			});
-		});
 		</script>
 	</th:block>
 

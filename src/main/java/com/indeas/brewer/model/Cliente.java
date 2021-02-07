@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.indeas.brewer.model.validation.ClienteGroupSequenceProvider;
 import com.indeas.brewer.model.validation.group.CnpjGroup;
 import com.indeas.brewer.model.validation.group.CpfGroup;
@@ -44,6 +45,7 @@ public class Cliente implements Serializable {
 	@Email(message = "E-mail inválido")
 	private String email;
 
+	@JsonIgnore
 	@Embedded
 	private Endereco endereco;
 
