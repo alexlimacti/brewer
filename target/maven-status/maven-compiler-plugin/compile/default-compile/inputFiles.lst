@@ -30,6 +30,7 @@ E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\co
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\VendasController.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\converter\CidadeConverter.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\config\JPAConfig.java
+E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\dto\CervejaDTO.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\exception\NomeCidadeJaCadastradaException.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\controller\ErrosController.java
 E:\Desenvolvimento\Workspace\algaworks\brewer\src\main\java\com\indeas\brewer\repository\Usuarios.java
