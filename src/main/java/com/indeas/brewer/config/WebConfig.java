@@ -6,6 +6,7 @@ import com.indeas.brewer.converter.CidadeConverter;
 import com.indeas.brewer.converter.EstadoConverter;
 import com.indeas.brewer.converter.EstiloConverter;
 import com.indeas.brewer.converter.GrupoConverter;
+import com.indeas.brewer.session.TabelaItensVenda;
 import com.indeas.brewer.thymeleaf.BrewerDialect;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.beans.BeansException;
@@ -44,7 +45,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 @Configuration
-@ComponentScan(basePackageClasses = {CervejasController.class})
+@ComponentScan(basePackageClasses = {CervejasController.class, TabelaItensVenda.class})
 @EnableWebMvc
 @EnableSpringDataWebSupport
 @EnableCaching
