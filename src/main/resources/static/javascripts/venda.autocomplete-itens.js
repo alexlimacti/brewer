@@ -1,6 +1,6 @@
 Brewer = Brewer || {};
 
-Brewer.Autocomplete = (function() {
+Brewer.Autocomplete = (function () {
 
     function Autocomplete() {
         this.skuOuNomeInput = $('.js-sku-nome-cerveja-input');
@@ -10,11 +10,11 @@ Brewer.Autocomplete = (function() {
         this.on = this.emitter.on.bind(this.emitter);
     }
 
-    Autocomplete.prototype.iniciar = function() {
+    Autocomplete.prototype.iniciar = function () {
         var options = {
-            url: function(skuOuNome) {
-                return '/brewer/cervejas?skuOuNome=' + skuOuNome;
-            },
+            url: function (skuOuNome) {
+                return this.skuOuNomeInput.data('url') + '?skuOuNome=' + skuOuNome;
+            }.bind(this),
             getValue: 'nome',
             minCharNumber: 3,
             requestDelay: 300,
@@ -35,6 +35,8 @@ Brewer.Autocomplete = (function() {
 
     function onItemSelecionado() {
         this.emitter.trigger('item-selecionado', this.skuOuNomeInput.getSelectedItemData());
+        this.skuOuNomeInput.val('');
+        this.skuOuNomeInput.focus();
     }
 
     function template(nome, cerveja) {
