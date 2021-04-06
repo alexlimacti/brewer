@@ -48,7 +48,7 @@
 
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
 
-        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.23</mysql-connector-java.version>
 
         <!-- Spring Data JPA -->
         <spring-data-jpa.version>2.3.4.RELEASE</spring-data-jpa.version>
@@ -238,7 +238,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector-java.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- Javax -->
