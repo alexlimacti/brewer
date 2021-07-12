@@ -1,10 +1,14 @@
 package com.indeas.brewer.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="venda")
@@ -16,10 +20,10 @@ public class Venda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
-    @Column(name="data_criacao")
+    @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
-    @Column(name="valor_frete")
+    @Column(name = "valor_frete")
     private BigDecimal valorFrete;
 
     @Column(name = "valor_desconto")
