@@ -1,14 +1,29 @@
 package com.indeas.brewer.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class ItemVenda {
+@Entity
+public class ItemVenda implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
     private Integer quantidade;
     private BigDecimal valorUnitario;
+
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_cerveja")
     private Cerveja cerveja;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_venda")
+    private Venda venda;
 
     public BigDecimal getValorTotal() {
         return valorUnitario.multiply(new BigDecimal(quantidade));
@@ -44,6 +59,14 @@ public class ItemVenda {
 
     public void setCerveja(Cerveja cerveja) {
         this.cerveja = cerveja;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
     }
 
     @Override
