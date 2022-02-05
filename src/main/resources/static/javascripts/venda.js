@@ -5,6 +5,7 @@ Brewer.Venda = (function() {
         this.valorTotalBox = $('.js-valor-total-box');
         this.valorFreteInput = $('#valorFrete');
         this.valorDescontoInput = $('#valorDesconto');
+        this.valorTotalBoxContainer = $('.js-valor-total-box-container');
 
         this.valorTotalItens = 0;
         this.valorFrete = 0;
@@ -44,7 +45,6 @@ Brewer.Venda = (function() {
 }());
 
 $(function() {
-
     var autocomplete = new Brewer.Autocomplete();
     autocomplete.iniciar();
 
@@ -53,5 +53,4 @@ $(function() {
 
     var venda = new Brewer.Venda(tabelaItens);
     venda.iniciar();
-
 });
