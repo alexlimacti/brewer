@@ -1,9 +1,13 @@
 package com.indeas.brewer.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -30,8 +34,8 @@ public class Venda implements Serializable {
 
     private String observacao;
 
-    @Column(name = "data_entrega")
-    private LocalDateTime dataEntrega;
+    @Column(name = "data_hora_entrega")
+    private LocalDateTime dataHoraEntrega;
 
     @ManyToOne
     @JoinColumn(name = "codigo_cliente")
@@ -42,10 +46,20 @@ public class Venda implements Serializable {
     private Usuario usuario;
 
     @Enumerated(EnumType.STRING)
-    private StatusVenda status;
+    private StatusVenda status = StatusVenda.ORCAMENTO;
 
-    @OneToMany(mappedBy = "venda")
+    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL)
     private List<ItemVenda> itens;
+
+    @Transient
+    private String uuid;
+
+    @Transient
+    @DateTimeFormat(pattern="dd/MM/yyyy")
+    private LocalDate dataEntrega;
+
+    @Transient
+    private LocalTime horarioEntrega;
 
     public Long getCodigo() {
         return codigo;
@@ -95,12 +109,12 @@ public class Venda implements Serializable {
         this.observacao = observacao;
     }
 
-    public LocalDateTime getDataEntrega() {
-        return dataEntrega;
+    public LocalDateTime getDataHoraEntrega() {
+        return dataHoraEntrega;
     }
 
-    public void setDataEntrega(LocalDateTime dataEntrega) {
-        this.dataEntrega = dataEntrega;
+    public void setDataHoraEntrega(LocalDateTime dataHoraEntrega) {
+        this.dataHoraEntrega = dataHoraEntrega;
     }
 
     public Cliente getCliente() {
@@ -135,6 +149,34 @@ public class Venda implements Serializable {
         this.itens = itens;
     }
 
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public LocalDate getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(LocalDate dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
+
+    public LocalTime getHorarioEntrega() {
+        return horarioEntrega;
+    }
+
+    public void setHorarioEntrega(LocalTime horarioEntrega) {
+        this.horarioEntrega = horarioEntrega;
+    }
+
+    public boolean isNova(){
+        return codigo == null;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -158,5 +200,10 @@ public class Venda implements Serializable {
         } else if (!codigo.equals(other.codigo))
             return false;
         return true;
+    }
+
+    public void adicionarItens(List<ItemVenda> itens) {
+        this.itens = itens;
+        this.itens.forEach(i -> i.setVenda(this));
     }
 }

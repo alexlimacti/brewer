@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
+@Table(name = "item_venda")
 public class ItemVenda implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -14,6 +15,8 @@ public class ItemVenda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
     private Integer quantidade;
+
+    @Column(name = "valor_unitario")
     private BigDecimal valorUnitario;
 
 

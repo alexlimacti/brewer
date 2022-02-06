@@ -1,13 +1,18 @@
 package com.indeas.brewer.controller;
 
 import com.indeas.brewer.model.Cerveja;
+import com.indeas.brewer.model.Venda;
 import com.indeas.brewer.repository.Cervejas;
+import com.indeas.brewer.security.UsuarioSistema;
+import com.indeas.brewer.service.CadastroVendaService;
 import com.indeas.brewer.session.TabelaItensVenda;
 import com.indeas.brewer.session.TabelasItensSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.UUID;
 
@@ -21,11 +26,23 @@ public class VendasController {
     @Autowired
     private TabelasItensSession tabelaItens;
 
+    @Autowired
+    private CadastroVendaService cadastroVendaService;
+
     @GetMapping("/nova")
-    public ModelAndView nova() {
+    public ModelAndView nova(Venda venda) {
         ModelAndView mv = new ModelAndView("venda/CadastroVenda");
-        mv.addObject("uuid", UUID.randomUUID().toString());
+        venda.setUuid(UUID.randomUUID().toString());
         return mv;
+    }
+
+    @PostMapping("/nova")
+    public ModelAndView salvar(Venda venda, RedirectAttributes attributes, @AuthenticationPrincipal UsuarioSistema usuarioSistema) {
+        venda.setUsuario(usuarioSistema.getUsuario());
+        venda.adicionarItens(tabelaItens.getItens(venda.getUuid()));
+        cadastroVendaService.salvar(venda);
+        attributes.addFlashAttribute("mensagem", "Venda salva com sucesso");
+        return new ModelAndView("redirect:/vendas/nova");
     }
 
     @PostMapping("/item")
