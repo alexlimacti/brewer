@@ -23,10 +23,9 @@ import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-@ComponentScan(basePackageClasses = Cervejas.class)
-@EnableJpaRepositories(basePackageClasses = Cervejas.class, enableDefaultTransactions = false)
+@EnableJpaRepositories(basePackageClasses = Cervejas.class)
 @EnableTransactionManagement
-@ComponentScan(basePackageClasses = Cervejas.class)
+@ComponentScan(basePackages = "com.indeas.brewer")
 public class JPAConfig {
 
 	@Autowired
@@ -41,17 +40,17 @@ public class JPAConfig {
 		dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
 		return dataSource;
 	}
-
+	
 	@Bean
 	public JpaVendorAdapter jpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		adapter.setDatabase(Database.MYSQL);
-		adapter.setShowSql(Boolean.parseBoolean(environment.getRequiredProperty("hibernate.show_sql")));
+		adapter.setShowSql(true);
 		adapter.setGenerateDdl(false);
-		adapter.setDatabasePlatform(environment.getRequiredProperty("hibernate.dialect"));
+		adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
 		return adapter;
 	}
-
+	
 	@Bean
 	public EntityManagerFactory entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
@@ -61,12 +60,12 @@ public class JPAConfig {
 		factory.afterPropertiesSet();
 		return factory.getObject();
 	}
-
+	
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactory);
 		return transactionManager;
 	}
-
+	
 }

@@ -1,21 +1,24 @@
 package com.indeas.brewer.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
 @Table(name = "item_venda")
-public class ItemVenda {
+public class ItemVenda implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
-
     private Integer quantidade;
 
     @Column(name = "valor_unitario")
     private BigDecimal valorUnitario;
+
 
     @ManyToOne
     @JoinColumn(name = "codigo_cerveja")
@@ -24,6 +27,10 @@ public class ItemVenda {
     @ManyToOne
     @JoinColumn(name = "codigo_venda")
     private Venda venda;
+
+    public BigDecimal getValorTotal() {
+        return valorUnitario.multiply(new BigDecimal(quantidade));
+    }
 
     public Long getCodigo() {
         return codigo;
@@ -57,10 +64,6 @@ public class ItemVenda {
         this.cerveja = cerveja;
     }
 
-    public BigDecimal getValorTotal() {
-        return valorUnitario.multiply(new BigDecimal(quantidade));
-    }
-
     public Venda getVenda() {
         return venda;
     }
@@ -70,27 +73,15 @@ public class ItemVenda {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemVenda itemVenda = (ItemVenda) o;
+        return codigo.equals(itemVenda.codigo);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        ItemVenda other = (ItemVenda) obj;
-        if (codigo == null) {
-            if (other.codigo != null)
-                return false;
-        } else if (!codigo.equals(other.codigo))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(codigo);
     }
 }
