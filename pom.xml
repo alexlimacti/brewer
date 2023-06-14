@@ -62,7 +62,7 @@
         <thumbnailator.version>0.4.13</thumbnailator.version>
 
         <!-- Cache - Guava -->
-        <guava.version>30.0-jre</guava.version>
+        <guava.version>32.0.0-jre</guava.version>
 
         <javax.cache.version>1.1.1</javax.cache.version>
 
